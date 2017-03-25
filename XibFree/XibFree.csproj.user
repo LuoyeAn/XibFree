@@ -20,5 +20,6 @@
 &lt;/plist&gt;
 </TargetiOSDevice>
     <SelectedDevice>Device</SelectedDevice>
+    <DefaultDevice>iPhone SE iOS 10.2</DefaultDevice>
   </PropertyGroup>
 </Project>

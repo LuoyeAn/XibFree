@@ -109,8 +109,8 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Grid.cs" />
     <Compile Include="LayoutParameters.cs" />
-    <Compile Include="UICustomLayoutHostScrollable.cs" />
     <Compile Include="ViewGroup.cs" />
     <Compile Include="LinearLayout.cs" />
     <Compile Include="View.cs" />
