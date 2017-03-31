@@ -39,7 +39,8 @@
         <Command>
           <type>AfterBuild</type>
           <command>cp ${TargetFile} ${SolutionDir}/out</command>
-          <workingdir></workingdir>
+          <workingdir>
+          </workingdir>
         </Command>
       </CustomCommands>
     </CustomCommands>
@@ -130,9 +131,6 @@
     <Compile Include="PublicExtensions.cs" />
     <Compile Include="Visibility.cs" />
     <Compile Include="UILayoutHostScrollable.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\NuGet.Build.Packaging.0.1.157-dev\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.1.157-dev\build\NuGet.Build.Packaging.targets')" />
