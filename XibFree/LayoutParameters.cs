@@ -371,17 +371,6 @@ namespace XibFree
 
 		internal nfloat TryResolveWidth(View view, nfloat parentWidth, nfloat parentHeight)
 		{
-            //if (WidthUnits==Units.HostRatio)
-            //{
-            //	return GetHostSize(view).Width * WidthRatio;
-            //}
-
-            //if (WidthUnits==Units.ScreenRatio)
-            //{
-            //	return GetScreenSize().Width * WidthRatio;
-            //}
-
-            //return TryResolve(WidthUnits, Width, WidthRatio, parentWidth);
             switch (WidthUnits)
             {
                 case Units.HostRatio:
@@ -401,18 +390,6 @@ namespace XibFree
 	
 		internal nfloat TryResolveHeight(View view,nfloat parentWidth, nfloat parentHeight)
 		{
-			//if (HeightUnits==Units.HostRatio)
-			//{
-			//	return GetHostSize(view).Height * HeightRatio;
-			//}
-			
-			//if (HeightUnits==Units.ScreenRatio)
-			//{
-			//	return GetScreenSize().Height * HeightRatio;
-			//}
-
-			//return TryResolve(HeightUnits, Height, HeightRatio, parentHeight);
-
             switch (HeightUnits)
             {
                 case Units.HostRatio:
