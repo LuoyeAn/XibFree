@@ -22,7 +22,7 @@ namespace Demo
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
 
             // If you have defined a root view controller, set it here:
-            Window.RootViewController =new UINavigationController(new DashBoardView());
+            Window.RootViewController =new UINavigationController(new WrapLayoutDemo());
 
             // make the window visible
             Window.MakeKeyAndVisible();

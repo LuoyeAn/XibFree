@@ -46,7 +46,7 @@ namespace Demo
                     new WrapLayout()
                     {
                         LayoutParameters = new LayoutParameters(AutoSize.FillParent, AutoSize.WrapContent),
-                                Gravity = Gravity.Right,
+                        //Gravity = Gravity.Right,
                         SubViews = new View[]
                         {
                             // A NativeView contains an iOS UIView
@@ -58,7 +58,6 @@ namespace Demo
                                     // Set properties here
                                     BackgroundColor = UIColor.Red,
                                 },
-
                                 // This controls how it's laid out by its parent view group (in this case the outer linear layout)
                                 LayoutParameters = new LayoutParameters()
                                 {
@@ -92,7 +91,6 @@ namespace Demo
                                     // Set properties here
                                     BackgroundColor = UIColor.Red,
                                 },
-
                                 // This controls how it's laid out by its parent view group (in this case the outer linear layout)
                                 LayoutParameters = new LayoutParameters()
                                 {
@@ -108,9 +106,10 @@ namespace Demo
                                     Text = "456 45 6",
                                     Lines = 1,
                                 },
-                                            LayoutParameters = new LayoutParameters() {
-                                                Gravity = Gravity.Bottom,
-                                            },
+                                LayoutParameters = new LayoutParameters()
+                                {
+                                    Gravity = Gravity.Bottom,
+                                },
                             },
                         },
                     },
