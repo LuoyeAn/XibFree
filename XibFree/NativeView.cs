@@ -34,13 +34,22 @@ namespace XibFree
 		{
 
 		}
+        /// <summary>
+        /// this is just for gridLayout
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
+        public NativeView(int row,int column):base(row,column)
+        {
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="XibFree.NativeView"/> class.
-		/// </summary>
-		/// <param name="view">The view to be hosted.</param>
-		/// <param name="lp">The view's layout parameters.</param>
-		public NativeView(UIView view, LayoutParameters lp)
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="XibFree.NativeView"/> class.
+        /// </summary>
+        /// <param name="view">The view to be hosted.</param>
+        /// <param name="lp">The view's layout parameters.</param>
+        public NativeView(UIView view, LayoutParameters lp)
 		{
 			_view = view;
 			this.LayoutParameters = lp;

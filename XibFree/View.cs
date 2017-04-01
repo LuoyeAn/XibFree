@@ -34,11 +34,18 @@ namespace XibFree
 			LayoutParameters = new LayoutParameters();
 		}
 
-		/// <summary>
-		/// Gets or sets this view's parent view
-		/// </summary>
-		/// <value>A reference to the parent view (or null)</value>
-		public ViewGroup Parent
+        public View(int row,int column)
+        {
+            LayoutParameters = new LayoutParameters();
+            Row = row;
+            Column = column;
+        }
+
+        /// <summary>
+        /// Gets or sets this view's parent view
+        /// </summary>
+        /// <value>A reference to the parent view (or null)</value>
+        public ViewGroup Parent
 		{
 			get
 			{
@@ -237,6 +244,10 @@ namespace XibFree
 		internal CGSize _measuredSize;
 		internal bool _measuredSizeValid;
 		internal ViewGroup _parent;
-	}
+
+        //for displaying inside GridLayout
+        internal virtual int Row { get; set; }
+        internal virtual int Column { get; set; }
+    }
 }
 

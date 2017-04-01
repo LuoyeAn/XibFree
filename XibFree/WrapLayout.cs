@@ -68,20 +68,20 @@ namespace XibFree
             MeasureHorizontal(parentWidth, parentHeight);
         }
 
-        private class Row
+        private class WrapRow
         {
             public nfloat Width { get; set; }
             public nfloat Height { get; set; }
             public nfloat YPosition { get; set; }
             public List<View> Views { get; set; }
 
-            public Row()
+            public WrapRow()
             {
                 Views = new List<View>();
             }
         }
         private List<View> _goneViews;
-        private List<Row> _rows;
+        private List<WrapRow> _rows;
 
 
         // Do measurement when in horizontal orientation
@@ -95,10 +95,10 @@ namespace XibFree
             int visibleViewCount = 0;
             var paddings = Padding.TotalWidth();
 
-            _rows = new List<Row>();
+            _rows = new List<WrapRow>();
             _goneViews = new List<View>();
 
-            var row = new Row();
+            var row = new WrapRow();
             _rows.Add(row);
             Func<nfloat> spacing = () => visibleViewCount == 0 ? 0 : Spacing;
             foreach (var v in SubViews)
@@ -116,7 +116,7 @@ namespace XibFree
                 if (row.Width + width + spacing() > parentWidth)
                 {
                     visibleViewCount = 0;
-                    var newRow = new Row();
+                    var newRow = new WrapRow();
                     newRow.YPosition = row.YPosition + row.Height;
                     row = newRow;
                     _rows.Add(row);
