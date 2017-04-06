@@ -115,7 +115,6 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Grid.cs" />
     <Compile Include="GridLayout.cs" />
     <Compile Include="LayoutParameters.cs" />
     <Compile Include="ViewGroup.cs" />

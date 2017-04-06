@@ -26,7 +26,7 @@ namespace XibFree
 		/// Initializes a new instance of the <see cref="XibFree.LinearLayout"/> class.
 		/// </summary>
 		/// <param name="orientation">Specifies the horizontal or vertical orientation of this layout.</param>
-		public LinearLayout(Orientation orientation)
+		public LinearLayout(Orientation orientation=Orientation.Horizontal)
 		{
 			_orientation = orientation;
 			Gravity = Gravity.TopLeft;

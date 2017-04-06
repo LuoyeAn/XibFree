@@ -97,18 +97,13 @@ namespace XibFree
 		/// </summary>
 		public override void LayoutSubviews()
 		{
-			if (_layout!=null)
-			{
-				// Remeasure
-				_layout.Measure(Bounds.Width, Bounds.Height);
-				// Apply layout
-				_layout.Layout(Bounds, false);
-                if (DidLayoutAction != null)
-                {
-                    DidLayoutAction();
-                }
-			}
-		}
+            // Remeasure
+            _layout?.Measure(Bounds.Width, Bounds.Height);
+            // Apply layout
+            _layout?.Layout(Bounds, false);
+
+            DidLayoutAction?.Invoke();
+        }
 
         public Action DidLayoutAction { get; set; }
 
