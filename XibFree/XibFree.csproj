@@ -14,9 +14,14 @@
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>XibFree</PackageId>
-    <PackageVersion>1.0</PackageVersion>
+    <PackageVersion>1.0.3-beta</PackageVersion>
     <Authors>TingtingAn</Authors>
     <Description>XibFree for Xamarin.IOS</Description>
+    <Owners>tingtingan</Owners>
+    <PackageProjectUrl>https://github.com/TingtingAn/XibFree</PackageProjectUrl>
+    <Summary>XibFree for Xamarin.IOS</Summary>
+    <PackageTags>Xamarin.IOS XibFree</PackageTags>
+    <Title>XibFree</Title>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
