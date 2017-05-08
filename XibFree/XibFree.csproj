@@ -14,7 +14,7 @@
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>XibFree</PackageId>
-    <PackageVersion>1.0.3-beta</PackageVersion>
+    <PackageVersion>1.0.3-beta2</PackageVersion>
     <Authors>TingtingAn</Authors>
     <Description>XibFree for Xamarin.IOS</Description>
     <Owners>tingtingan</Owners>
