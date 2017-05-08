@@ -17,6 +17,8 @@
 using System;
 using CoreGraphics;
 using System.Linq;
+using CoreAnimation;
+using UIKit;
 
 namespace XibFree
 {
@@ -325,23 +327,41 @@ namespace XibFree
 		// Overridden to layout the subviews
 		protected override void onLayout(CGRect newPosition, bool parentHidden)
 		{
-			base.onLayout(newPosition, parentHidden);
+            if (Animate)
+            {
+                base.onLayout(newPosition, parentHidden);
+                UIView.BeginAnimations(null);
+                UIView.SetAnimationDuration(AnimateDuration);
+                if (!parentHidden && Visible)
+                {
+                    if (_orientation == Orientation.Vertical)
+                    {
+                        LayoutVertical(newPosition);
+                    }
+                    else
+                    {
+                        LayoutHorizontal(newPosition);
+                    }
+                }
+                UIView.CommitAnimations();
+                return;
+            }
+            base.onLayout(newPosition, parentHidden);
+            if (!parentHidden && Visible)
+            {
+                if (_orientation == Orientation.Vertical)
+                {
+                    LayoutVertical(newPosition);
+                }
+                else
+                {
+                    LayoutHorizontal(newPosition);
+                }
+            }
+        }
 
-			if (!parentHidden && Visible)
-			{
-				if (_orientation==Orientation.Vertical)
-				{
-					LayoutVertical(newPosition);
-				}
-				else
-				{
-					LayoutHorizontal(newPosition);
-				}
-			}
-		}
-
-		// Do subview layout when in vertical orientation
-		void LayoutVertical(CGRect newPosition)
+        // Do subview layout when in vertical orientation
+        void LayoutVertical(CGRect newPosition)
 		{
 			nfloat y;
 			switch (Gravity & Gravity.VerticalMask)

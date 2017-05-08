@@ -272,7 +272,6 @@ namespace XibFree
                 {
                     v.Layout(CGRect.Empty, false);
                 }
-                return;
             }
         }
         public int Tag
@@ -290,16 +289,18 @@ namespace XibFree
 
         internal override UIView UIViewWithTag(int tag)
         {
-            return _subViews.Select(v => v.UIViewWithTag(tag)).FirstOrDefault(result => result != null);
+            return _subViews?.Select(v => v.UIViewWithTag(tag)).FirstOrDefault(result => result != null);
         }
 
         public override NativeView FindNativeView(UIView view)
         {
-            return _subViews.Select(v => v.FindNativeView(view)).FirstOrDefault(result => result != null);
+            return _subViews?.Select(v => v.FindNativeView(view)).FirstOrDefault(result => result != null);
         }
 
         internal override CALayer FindFirstSublayer()
         {
+            if (SubViews == null)
+                return null;
             foreach (var v in SubViews)
             {
                 var l = v.GetDisplayLayer();
@@ -330,8 +331,7 @@ namespace XibFree
             set
             {
                 // Remove old layer
-                if (_layer != null)
-                    _layer.RemoveFromSuperLayer();
+                _layer?.RemoveFromSuperLayer();
 
                 // Store it
                 _layer = value;
@@ -358,6 +358,9 @@ namespace XibFree
 
             }
         }
+
+        public bool Animate { get; set; }
+        public double AnimateDuration { get; set; }
 
         // Fields
         readonly List<View> _subViews = new List<View>();

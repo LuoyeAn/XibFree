@@ -124,23 +124,9 @@ namespace XibFree
 			if (_view!=null)
 			{
 				_view.Hidden = parentHidden || !Visible;
-                //_view.Frame = newPosition;
-                if (Animate)
-                {
-                    UIView.BeginAnimations(null);
-                    UIView.SetAnimationDuration(AnimateDuration);
-                    _view.Frame = newPosition;
-                    UIView.CommitAnimations();
-                }
-                else
-                {
-                    _view.Frame = newPosition;
-                }
-			}
+                _view.Frame = newPosition;
+            }
 		}
-
-        public bool Animate { get; set; }
-        public int AnimateDuration { get; set; }
 
 		/// <summary>
 		/// Overridden to provide measurement support for this native view
