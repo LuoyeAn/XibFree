@@ -2,6 +2,8 @@
 
 XibFree fix some bugs
 
+See http://www.toptensoftware.com/xibfree/ for more information.
+
 # Nuget
 
 Install-Package XibFree
