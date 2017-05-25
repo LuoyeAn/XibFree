@@ -176,12 +176,9 @@ namespace XibFree
 		/// </summary>
 		internal override void onDetach()
 		{
-			// If we have a view, remove from the hosting view by removing it from the superview
-			if (_view!=null)
-			{
-				_view.RemoveFromSuperview();
-			}
-		}
+            // If we have a view, remove from the hosting view by removing it from the superview
+            _view?.RemoveFromSuperview();
+        }
 
 		/// Delegate for a plugin measurement support
 		public delegate CGSize NativeMeasurer(UIView native, CGSize constraint);

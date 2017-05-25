@@ -231,8 +231,8 @@ namespace XibFree
         internal override void onDetach()
         {
             // Remove from layer
-            if (_layer != null)
-                _layer.RemoveFromSuperLayer();
+            _layer?.RemoveFromSuperLayer();
+
 
             // Forward on to all children
             foreach (var c in _subViews)
