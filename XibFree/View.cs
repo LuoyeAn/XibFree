@@ -234,11 +234,8 @@ namespace XibFree
 
 		public void RemoveFromSuperview()
 		{
-			if (Parent!=null)
-			{
-				Parent.RemoveSubView(this);
-			}
-		}
+            Parent?.RemoveSubView(this);
+        }
 
 
 		internal CGSize _measuredSize;

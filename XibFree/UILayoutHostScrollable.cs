@@ -102,10 +102,7 @@ namespace XibFree
         {
             base.TouchesBegan(touches, evt);
             var view = this as UIView;
-            if (view != null)
-            {
-                view.EndEditing(true);
-            }
+            view?.EndEditing(true);
         }
     }
 }
