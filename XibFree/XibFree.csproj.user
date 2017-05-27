@@ -19,8 +19,8 @@
 &lt;/dict&gt;
 &lt;/plist&gt;
 </TargetiOSDevice>
-    <SelectedDevice>AppleDev’s iPhone</SelectedDevice>
-    <DefaultDevice>iPhone SE iOS 10.2</DefaultDevice>
+    <SelectedDevice>iPhone 6s iOS 9.3</SelectedDevice>
+    <DefaultDevice>iPhone 6s iOS 9.3</DefaultDevice>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
 </Project>

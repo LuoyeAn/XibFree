@@ -216,13 +216,13 @@ namespace XibFree
         /// <param name="host">The Host.</param>
         internal override void onAttach(IHost host)
         {
-            // Add the layer
-            if (_layer != null)
-                host.GetUIView().Layer.AddSublayer(_layer);
-
             // Forward on to all children
             foreach (var c in _subViews)
                 c.onAttach(host);
+
+            // Add the layer
+            if (_layer != null)
+                host.GetUIView().Layer.AddSublayer(_layer);
         }
 
         /// <summary>
@@ -343,7 +343,6 @@ namespace XibFree
                     if (host != null)
                     {
                         UIView hostView = host.GetUIView();
-                        //hostView.ClipsToBounds = true;
                         var nextSubLayer = FindFirstSublayer();
                         if (nextSubLayer != null)
                         {

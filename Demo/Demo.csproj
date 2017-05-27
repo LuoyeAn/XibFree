@@ -46,8 +46,11 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer: Jonah Cacioppe (JV7HAT2GUP)</CodesignKey>
+    <MtouchDebug>True</MtouchDebug>
+    <IOSDebugOverWiFi>False</IOSDebugOverWiFi>
+    <IOSDebuggerPort>10000</IOSDebuggerPort>
+    <CodesignProvision>5cdd8f51-2c27-4374-bfb9-b0850dd020d3</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -93,6 +96,7 @@
     <Compile Include="GridLayoutDemo.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Views\RootView.cs" />
     <Compile Include="WrapLayoutDemo.cs" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="Info.plist" />
