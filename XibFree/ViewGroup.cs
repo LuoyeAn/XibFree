@@ -216,13 +216,12 @@ namespace XibFree
         /// <param name="host">The Host.</param>
         internal override void onAttach(IHost host)
         {
-            // Forward on to all children
-            foreach (var c in _subViews)
-                c.onAttach(host);
-
             // Add the layer
             if (_layer != null)
                 host.GetUIView().Layer.AddSublayer(_layer);
+            // Forward on to all children
+            foreach (var c in _subViews)
+                c.onAttach(host);
         }
 
         /// <summary>
@@ -260,7 +259,12 @@ namespace XibFree
                 {
                     if (!_layer.Hidden)
                     {
+                        //_layer.Frame = newPosition;
+                        CATransaction.Begin();
+                        CATransaction.DisableActions = true;
+                        //_layer.Hidden = newHidden;
                         _layer.Frame = newPosition;
+                        CATransaction.Commit();
                     }
                 }
             }
