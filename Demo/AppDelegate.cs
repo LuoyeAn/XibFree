@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using Demo.Views;
+using Foundation;
 using UIKit;
 
 namespace Demo
@@ -22,8 +23,8 @@ namespace Demo
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
 
             // If you have defined a root view controller, set it here:
-            Window.RootViewController =new UINavigationController(new GridLayoutDemo());
-
+            Window.RootViewController =new UINavigationController(new RootView());
+            UINavigationBar.Appearance.Translucent = false;
             // make the window visible
             Window.MakeKeyAndVisible();
 

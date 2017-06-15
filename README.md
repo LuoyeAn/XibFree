@@ -2,9 +2,13 @@
 
 XibFree fix some bugs
 
+See http://www.toptensoftware.com/xibfree/ for more information.
+
 # Nuget
 
-Install-Package XibFree
+To install it with nuget:
+
+            Install-Package XibFree
 
 
 # New Feature  (beta version)

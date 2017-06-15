@@ -219,7 +219,6 @@ namespace XibFree
             // Add the layer
             if (_layer != null)
                 host.GetUIView().Layer.AddSublayer(_layer);
-
             // Forward on to all children
             foreach (var c in _subViews)
                 c.onAttach(host);
@@ -231,8 +230,8 @@ namespace XibFree
         internal override void onDetach()
         {
             // Remove from layer
-            if (_layer != null)
-                _layer.RemoveFromSuperLayer();
+            _layer?.RemoveFromSuperLayer();
+
 
             // Forward on to all children
             foreach (var c in _subViews)
@@ -260,7 +259,12 @@ namespace XibFree
                 {
                     if (!_layer.Hidden)
                     {
+                        //_layer.Frame = newPosition;
+                        CATransaction.Begin();
+                        CATransaction.DisableActions = true;
+                        //_layer.Hidden = newHidden;
                         _layer.Frame = newPosition;
+                        CATransaction.Commit();
                     }
                 }
             }
@@ -343,7 +347,6 @@ namespace XibFree
                     if (host != null)
                     {
                         UIView hostView = host.GetUIView();
-                        //hostView.ClipsToBounds = true;
                         var nextSubLayer = FindFirstSublayer();
                         if (nextSubLayer != null)
                         {
