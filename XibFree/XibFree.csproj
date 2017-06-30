@@ -14,7 +14,7 @@
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>XibFree</PackageId>
-    <PackageVersion>1.0.3-beta2</PackageVersion>
+    <PackageVersion>1.1.0.0</PackageVersion>
     <Authors>TingtingAn</Authors>
     <Description>XibFree for Xamarin.IOS</Description>
     <Owners>tingtingan</Owners>
@@ -39,6 +39,7 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\XibFree.xml</DocumentationFile>
     <ConsolePause>false</ConsolePause>
     <CustomCommands>
       <CustomCommands>
