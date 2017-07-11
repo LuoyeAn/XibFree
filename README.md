@@ -11,7 +11,7 @@ To install it with nuget:
             Install-Package XibFree
 
 
-# New Feature  (beta version)
+# New Feature 
 
 added the Animate feature for LinearLayout subviews.
 
