@@ -96,6 +96,7 @@
     <Compile Include="GridLayoutDemo.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Views\NestingScrollView.cs" />
     <Compile Include="Views\RootView.cs" />
     <Compile Include="WrapLayoutDemo.cs" />
     <None Include="GettingStarted.Xamarin" />
