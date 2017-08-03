@@ -36,7 +36,7 @@ namespace Demo.Views
                 SubViews = new View[]
                 {
                     new FrameLayout
-                    {
+					{
                         SubViews=new View[]
                         {
                             new NativeView
@@ -53,7 +53,7 @@ namespace Demo.Views
                             },
                             new NativeView
                             {
-                                View=new UILayoutHostScrollable(_bottomLayout= new LinearLayout()
+                                View=new UILayoutHostScrollable(new LinearLayout()
                                 {
                                     LayoutParameters=new LayoutParameters(AutoSize.WrapContent,AutoSize.FillParent),
                                     SubViews=new View[]
@@ -128,7 +128,7 @@ namespace Demo.Views
 
                                                         var placeHolderLabel=new UILabel();
                                                         placeHolderLabel.Text="Type a message...";
-                                                        placeHolderLabel.Font=textView.Font;
+                                                        //placeHolderLabel.Font=textView.Font;
                                                         placeHolderLabel.SizeToFit();
                                                         textView.AddSubview(placeHolderLabel);
                                                         textView.SetValueForKey(placeHolderLabel,new NSString("_placeholderLabel"));
@@ -155,7 +155,27 @@ namespace Demo.Views
                                                     }
                                                 },
                                             }
-                                        }
+                                        },
+										new NativeView
+                                        {
+                                            View=new UIButton(),
+                                            LayoutParameters=new LayoutParameters
+                                            {
+                                                Width=AutoSize.WrapContent,
+                                                Height=AutoSize.WrapContent,
+                                                Gravity=Gravity.Bottom,
+                                                MarginLeft=5f
+                                            },
+                                            Init=view=>
+                                            {
+                                                var button = view.As<UIButton>();
+												button.SetTitle("Send",UIControlState.Normal);
+                                                button.SetTitleColor(UIColor.LightGray,UIControlState.Disabled);
+                                                button.SetTitleColor(UIColor.Blue,UIControlState.Normal);
+                                                button.ContentEdgeInsets=new UIEdgeInsets(10,10,10,10);
+												button.AccessibilityIdentifier="sendButton";
+                                            }
+                                        },
                                         #endregion
                                     }
                                 }),//
