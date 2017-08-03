@@ -324,7 +324,7 @@ namespace XibFree
 			SetMeasuredSize(LayoutParameters.ResolveSize(new CGSize(layoutWidth, layoutHeight), sizeMeasured));
 		}
 
-		// Overridden to layout the subviews
+		/// Overridden to layout the subviews
 		protected override void onLayout(CGRect newPosition, bool parentHidden)
 		{
             if (Animate)

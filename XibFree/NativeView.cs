@@ -118,12 +118,13 @@ namespace XibFree
 		/// Overridden to set the position of the native view
 		/// </summary>
 		/// <param name="newPosition">New position.</param>
+        /// <param name="parentHidden"></param>
 		protected override void onLayout(CGRect newPosition, bool parentHidden)
 		{
 			// Simple, just reposition the view!
 			if (_view!=null)
 			{
-				_view.Hidden = parentHidden || !Visible;
+                _view.Hidden = parentHidden || !Visible;
                 _view.Frame = newPosition;
             }
 		}

@@ -96,7 +96,7 @@ namespace XibFree
         /// <summary>
         /// Insert a new subview at the end of the subview collection
         /// </summary>
-        /// <param name="child">The subview to add</param>
+        /// <param name="view">The subview to add</param>
         public void AddSubView(View view)
         {
             InsertSubView(-1, view);
@@ -361,9 +361,6 @@ namespace XibFree
 
             }
         }
-
-        public bool Animate { get; set; }
-        public double AnimateDuration { get; set; }
 
         // Fields
         readonly List<View> _subViews = new List<View>();
