@@ -250,7 +250,7 @@ namespace XibFree
                     // the old rectangle for the position was probably wrong, resulting in 
                     // weird animation as it's repositioned.
                     CATransaction.Begin();
-                    CATransaction.DisableActions = true;
+                    CATransaction.DisableActions = false;
                     _layer.Hidden = newHidden;
                     _layer.Frame = newPosition;
                     CATransaction.Commit();
@@ -261,7 +261,7 @@ namespace XibFree
                     {
                         //_layer.Frame = newPosition;
                         CATransaction.Begin();
-                        CATransaction.DisableActions = true;
+                        CATransaction.DisableActions = false;
                         //_layer.Hidden = newHidden;
                         _layer.Frame = newPosition;
                         CATransaction.Commit();
@@ -274,7 +274,7 @@ namespace XibFree
             {
                 foreach (var v in SubViews)
                 {
-                    v.Layout(CGRect.Empty, false);
+                    v.Layout(CGRect.Empty, true);
                 }
             }
         }

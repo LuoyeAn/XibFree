@@ -125,6 +125,20 @@ namespace XibFree
 			if (_view!=null)
 			{
                 _view.Hidden = parentHidden || !Visible;
+                if (this._parent.Animate)
+                {
+                    if (_view.Bounds == CGRect.Empty)
+                    {
+                        var frame = newPosition;
+                        frame.Width = 0;
+                        frame.X = 0;
+                        _view.Frame = frame;
+                    }
+                    UIView.Animate(this._parent.AnimateDuration, () => {
+                        _view.Frame = newPosition;
+                    });
+                    return;
+                }
                 _view.Frame = newPosition;
             }
 		}
