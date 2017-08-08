@@ -195,9 +195,16 @@ namespace XibFree
 				width += Padding.TotalWidth();
 			}
 
-			if (height == nfloat.MaxValue|| LayoutParameters.ParentIsScorllView(this))
+			if (height == nfloat.MaxValue)
 			{
                 height = totalFixedSize + totalVariableSize;
+            }
+
+            if (LayoutParameters.ParentIsScorllView(this))
+            {
+                height = totalFixedSize + totalVariableSize;
+                if (LayoutParameters.HeightUnits == Units.ParentRatio)
+                    height = height < parentHeight ? parentHeight : height;
             }
 
             // And finally, set our measure dimensions
@@ -315,19 +322,26 @@ namespace XibFree
 
 			
 
-			if (layoutWidth == nfloat.MaxValue)
+			if (layoutWidth == nfloat.MaxValue )
 			{
 				layoutWidth = totalFixedSize + totalVariableSize;
 			}
+
+            if (LayoutParameters.ParentIsScorllView(this))
+            {
+                layoutWidth = totalFixedSize + totalVariableSize;
+                if (LayoutParameters.WidthUnits == Units.ParentRatio)
+                    layoutWidth = layoutWidth < parentWidth ? parentWidth : layoutWidth;
+            }
 			
 			// And finally, set our measure dimensions
 			SetMeasuredSize(LayoutParameters.ResolveSize(new CGSize(layoutWidth, layoutHeight), sizeMeasured));
 		}
 
-		// Overridden to layout the subviews
+		/// Overridden to layout the subviews
 		protected override void onLayout(CGRect newPosition, bool parentHidden)
 		{
-            if (Animate)
+            if (false)
             {
                 base.onLayout(newPosition, parentHidden);
                 UIView.BeginAnimations(null);
@@ -387,7 +401,7 @@ namespace XibFree
 				// Hide hidden views
 				if (v.Gone)
 				{
-					v.Layout(CGRect.Empty, false);
+					v.Layout(CGRect.Empty, true);
 					continue;
 				}
 
@@ -424,7 +438,7 @@ namespace XibFree
 				}
 
 				
-				v.Layout(new CGRect(x, y, size.Width, size.Height), false);
+				v.Layout(new CGRect(x, y, size.Width, size.Height), !Visible);
 
 				y += size.Height + v.LayoutParameters.Margins.Bottom;
 			}
@@ -445,19 +459,19 @@ namespace XibFree
 					break;
 					
 				case Gravity.CenterHorizontal:
-					x = (newPosition.Left + newPosition.Right)/2 - getTotalMeasuredWidth()/2 + Padding.Left;
-					break;
+                   x = (newPosition.Left + newPosition.Right)/2 - getTotalMeasuredWidth()/2 + Padding.Left;
+                    break;
 					
 			}
 
-			bool first = true;
+            bool first = true;
 
 			foreach (var v in SubViews)
 			{
 				// Hide hidden views
 				if (v.Gone)
 				{
-					v.Layout(CGRect.Empty, false);
+					v.Layout(CGRect.Empty, true);
 					continue;
 				}
 
@@ -493,7 +507,7 @@ namespace XibFree
 				}
 				
 				
-				v.Layout(new CGRect(x, y, size.Width, size.Height), false);
+				v.Layout(new CGRect(x, y, size.Width, size.Height), !Visible);
 				
 				x += size.Width + v.LayoutParameters.Margins.Right;
 			}
@@ -514,13 +528,13 @@ namespace XibFree
 		// Helper to get the total measured height of all subviews, including all padding and margins
 		private nfloat getTotalMeasuredHeight()
 		{
-			return (nfloat)(Padding.TotalWidth() + getTotalSpacing() + SubViews.Where(x=>!x.Gone).Sum(x=>x.GetMeasuredSize().Height + x.LayoutParameters.Margins.TotalHeight()));
+			return (nfloat)(Padding.TotalHeight() + getTotalSpacing() + SubViews.Where(x=>!x.Gone).Sum(x=>x.GetMeasuredSize().Height + x.LayoutParameters.Margins.TotalHeight()));
 		}
 		
 		// Helper to get the total measured width of all subviews, including all padding and margins
 		private nfloat getTotalMeasuredWidth()
 		{
-			return (nfloat)(Padding.TotalHeight() + getTotalSpacing() + SubViews.Where(x=>!x.Gone).Sum(x=>x.GetMeasuredSize().Width + x.LayoutParameters.Margins.TotalWidth()));
+			return (nfloat)(Padding.TotalWidth() + getTotalSpacing() + SubViews.Where(x=>!x.Gone).Sum(x=>x.GetMeasuredSize().Width + x.LayoutParameters.Margins.TotalWidth()));
 		}
 
 		// Helper to adjust the parent width passed down to subviews during measurement

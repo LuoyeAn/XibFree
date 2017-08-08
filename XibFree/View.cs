@@ -33,7 +33,11 @@ namespace XibFree
 		{
 			LayoutParameters = new LayoutParameters();
 		}
-
+        /// <summary>
+        /// Initializes a new instance
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
         public View(int row,int column)
         {
             LayoutParameters = new LayoutParameters();
@@ -105,16 +109,18 @@ namespace XibFree
 		/// Layout the subviews in this view using dimensions calculated during the last measure cycle
 		/// </summary>
 		/// <param name="newPosition">The new position of this view</param>
+        /// <param name="parentHidden"></param>
 		public void Layout(CGRect newPosition, bool parentHidden)
 		{
 			onLayout(newPosition, parentHidden);
 		}
 
-		/// <summary>
-		/// Overridden by view groups to perform the actual layout process
-		/// </summary>
-		/// <param name="newPosition">New position.</param>
-		protected abstract void onLayout(CGRect newPosition, bool parentHidden);
+        /// <summary>
+        /// Overridden by view groups to perform the actual layout process
+        /// </summary>
+        /// <param name="newPosition">New position.</param>
+        /// <param name="parentHidden"></param>
+        protected abstract void onLayout(CGRect newPosition, bool parentHidden);
 
 		/// <summary>
 		/// Measures the subviews of this view
@@ -138,7 +144,7 @@ namespace XibFree
 		/// <param name="parentHeight">Parent height.</param>
 		protected abstract void onMeasure(nfloat parentWidth, nfloat parentHeight);
 
-		// Mark the measurement of this view as invalid
+		/// Mark the measurement of this view as invalid
 		public void InvalidateMeasure()
 		{
 			_measuredSizeValid = false;
@@ -245,6 +251,9 @@ namespace XibFree
         //for displaying inside GridLayout
         internal virtual int Row { get; set; }
         internal virtual int Column { get; set; }
+
+        public bool Animate { get; set; }
+        public double AnimateDuration { get; set; }
     }
 }
 
