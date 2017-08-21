@@ -28,8 +28,8 @@ namespace XibFree
 				return null;
 
 			var host = view.Superview as UILayoutHost;
-			if (host==null)
-				throw new InvalidOperationException("Unable to find UILayoutHost for view - either the view is not part of a XibFree layout, or the layout hasn't been hosted by a UILayoutHost yet");
+			//if (host==null)
+			//	throw new InvalidOperationException("Unable to find UILayoutHost for view - either the view is not part of a XibFree layout, or the layout hasn't been hosted by a UILayoutHost yet");
 
 			return host;
 		}
@@ -38,14 +38,14 @@ namespace XibFree
 		public static NativeView GetNativeView(this UIView view)
 		{
 			var host = view.GetLayoutHost();
-			return host.FindNativeView(view);
+			return host?.FindNativeView(view);
 		}
 
 		// Get the root layout containing this UIView
 		public static View GetLayoutRoot(this UIView view)
 		{
 			var host = view.GetLayoutHost();
-			return host.Layout;
+			return host?.Layout;
 		}
 	}
 }
