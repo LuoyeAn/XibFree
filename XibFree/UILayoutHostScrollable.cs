@@ -85,15 +85,15 @@ namespace XibFree
 		{
 			if (Layout!=null)
 			{
-				// Remeasure the layout
-				Layout.Measure(Bounds.Width, Bounds.Height);
+                // Remeasure the layout
+                //Layout.Measure(Bounds.Width, Bounds.Height);
+                _layoutHost.SetNeedsLayout();
+                _layoutHost.LayoutIfNeeded();
 
-				var size = Layout.GetMeasuredSize();
+                var size = Layout.GetMeasuredSize();
                 
 				// Reposition the layout host
 				_layoutHost.Frame = new CGRect(CGPoint.Empty, size);
-
-                Layout.Layout(Bounds, false);
 
 				// Update the scroll view content
 				ContentSize = size;
