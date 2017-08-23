@@ -19,7 +19,7 @@
 &lt;/dict&gt;
 &lt;/plist&gt;
 </TargetiOSDevice>
-    <SelectedDevice>Device</SelectedDevice>
+    <SelectedDevice>iPhone</SelectedDevice>
     <DefaultDevice>iPhone 6s iOS 9.3</DefaultDevice>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
