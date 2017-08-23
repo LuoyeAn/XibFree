@@ -19,9 +19,12 @@ using UIKit;
 
 namespace XibFree
 {
+    /// <summary>
+    /// Extension method
+    /// </summary>
 	public static class PublicExtensions
 	{
-		// Find the UILayoutHost associated with a UIView
+		/// Find the UILayoutHost associated with a UIView
 		public static UILayoutHost GetLayoutHost(this UIView view)
 		{
 			if (view==null)
@@ -33,15 +36,27 @@ namespace XibFree
 
 			return host;
 		}
+        /// <summary>
+        /// SetNeedsLayout for root uiview
+        /// </summary>
+        /// <param name="view"></param>
+        public static void SetNeedsLayoutForHost(this UIView view)
+        {
+            var host = GetLayoutHost(view);
+            if (host?.Superview is UILayoutHostScrollable)
+                host?.Superview.SetNeedsLayout();
+            else
+                host?.SetNeedsLayout();
+        }
 
-		// Find the NativeView associated with a UIView
-		public static NativeView GetNativeView(this UIView view)
+        /// Find the NativeView associated with a UIView
+        public static NativeView GetNativeView(this UIView view)
 		{
 			var host = view.GetLayoutHost();
 			return host?.FindNativeView(view);
 		}
 
-		// Get the root layout containing this UIView
+		/// Get the root layout containing this UIView
 		public static View GetLayoutRoot(this UIView view)
 		{
 			var host = view.GetLayoutHost();

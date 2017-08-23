@@ -89,9 +89,11 @@ namespace XibFree
 				Layout.Measure(Bounds.Width, Bounds.Height);
 
 				var size = Layout.GetMeasuredSize();
-
+                
 				// Reposition the layout host
 				_layoutHost.Frame = new CGRect(CGPoint.Empty, size);
+
+                Layout.Layout(Bounds, false);
 
 				// Update the scroll view content
 				ContentSize = size;

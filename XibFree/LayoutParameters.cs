@@ -384,7 +384,7 @@ namespace XibFree
             var host = view.GetHost();
             if (host == null)
                 return false;
-            return host.GetUIView().Superview is UIScrollView;
+            return host.GetUIView().Superview is UILayoutHostScrollable;
         }
 
         internal nfloat TryResolveWidth(View view, nfloat parentWidth, nfloat parentHeight)
