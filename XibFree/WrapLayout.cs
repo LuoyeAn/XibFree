@@ -63,7 +63,7 @@ namespace XibFree
         }
 
         // Overridden to provide layout measurement
-        protected override void onMeasure(nfloat parentWidth, nfloat parentHeight)
+        protected override void OnMeasure(nfloat parentWidth, nfloat parentHeight)
         {
             MeasureHorizontal(parentWidth, parentHeight);
         }
@@ -109,15 +109,17 @@ namespace XibFree
                     continue;
                 }
 
-                v.Measure(parentWidth - paddings - v.LayoutParameters.Margins.TotalWidth(), adjustLayoutHeight(layoutHeight, v));
+                v.Measure(parentWidth - paddings - v.LayoutParameters.Margins.TotalWidth(), AdjustLayoutHeight(layoutHeight, v));
 
                 var width = v.GetMeasuredSize().Width + v.LayoutParameters.Margins.TotalWidth();
 
                 if (row.Width + width + spacing() > parentWidth)
                 {
                     visibleViewCount = 0;
-                    var newRow = new WrapRow();
-                    newRow.YPosition = row.YPosition + row.Height;
+                    var newRow = new WrapRow
+                    {
+                        YPosition = row.YPosition + row.Height
+                    };
                     row = newRow;
                     _rows.Add(row);
                 }
@@ -141,9 +143,9 @@ namespace XibFree
         }
 
         // Overridden to layout the subviews
-        protected override void onLayout(CGRect newPosition, bool parentHidden)
+        protected override void OnLayout(CGRect newPosition, bool parentHidden)
         {
-            base.onLayout(newPosition, parentHidden);
+            base.OnLayout(newPosition, parentHidden);
 
             if (!parentHidden && Visible)
             {
@@ -205,7 +207,7 @@ namespace XibFree
             }
         }
 
-        private nfloat getTotalSpacing()
+        private nfloat GetTotalSpacing()
         {
             if (Spacing == 0)
                 return 0;
@@ -218,19 +220,19 @@ namespace XibFree
         }
 
         // Helper to get the total measured height of all subviews, including all padding and margins
-        private nfloat getTotalMeasuredHeight()
+        private nfloat GetTotalMeasuredHeight()
         {
-            return (nfloat)(Padding.TotalWidth() + getTotalSpacing() + SubViews.Where(x => !x.Gone).Sum(x => x.GetMeasuredSize().Height + x.LayoutParameters.Margins.TotalHeight()));
+            return (nfloat)(Padding.TotalWidth() + GetTotalSpacing() + SubViews.Where(x => !x.Gone).Sum(x => x.GetMeasuredSize().Height + x.LayoutParameters.Margins.TotalHeight()));
         }
 
         // Helper to get the total measured width of all subviews, including all padding and margins
-        private nfloat getTotalMeasuredWidth()
+        private nfloat GetTotalMeasuredWidth()
         {
-            return (nfloat)(Padding.TotalHeight() + getTotalSpacing() + SubViews.Where(x => !x.Gone).Sum(x => x.GetMeasuredSize().Width + x.LayoutParameters.Margins.TotalWidth()));
+            return (nfloat)(Padding.TotalHeight() + GetTotalSpacing() + SubViews.Where(x => !x.Gone).Sum(x => x.GetMeasuredSize().Width + x.LayoutParameters.Margins.TotalWidth()));
         }
 
         // Helper to adjust the parent width passed down to subviews during measurement
-        private nfloat adjustLayoutWidth(nfloat width, View c)
+        private nfloat AdjustLayoutWidth(nfloat width, View c)
         {
             if (width == nfloat.MaxValue)
                 return width;
@@ -239,7 +241,7 @@ namespace XibFree
         }
 
         // Helper to adjust the parent height passed down to subviews during measurement
-        private nfloat adjustLayoutHeight(nfloat height, View c)
+        private nfloat AdjustLayoutHeight(nfloat height, View c)
         {
             if (height == nfloat.MaxValue)
                 return height;

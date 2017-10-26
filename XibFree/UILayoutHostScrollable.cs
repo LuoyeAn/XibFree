@@ -33,9 +33,11 @@ namespace XibFree
 		/// <param name="layout">Root of the view hierarchy to be hosted by this layout host</param>
 		public UILayoutHostScrollable(ViewGroup layout, CGRect frame) : base(frame)
 		{
-			_layoutHost = new UILayoutHost(layout);
-			_layoutHost.AutoresizingMask = UIViewAutoresizing.None;
-			this.AutoresizingMask = UIViewAutoresizing.FlexibleDimensions;
+            _layoutHost = new UILayoutHost(layout)
+            {
+                AutoresizingMask = UIViewAutoresizing.None
+            };
+            this.AutoresizingMask = UIViewAutoresizing.FlexibleDimensions;
 			this.AddSubview(_layoutHost);
             _frame = frame;
         }
@@ -86,9 +88,9 @@ namespace XibFree
 			if (Layout!=null)
 			{
                 // Remeasure the layout
-                //Layout.Measure(Bounds.Width, Bounds.Height);
-                _layoutHost.SetNeedsLayout();
-                _layoutHost.LayoutIfNeeded();
+                Layout.Measure(Bounds.Width, Bounds.Height);
+                //_layoutHost.SetNeedsLayout();
+                //_layoutHost.LayoutIfNeeded();
 
                 var size = Layout.GetMeasuredSize();
                 

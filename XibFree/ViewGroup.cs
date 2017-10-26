@@ -110,8 +110,7 @@ namespace XibFree
         {
             for (int i = 0; i < _subViews.Count; i++)
             {
-                var nv = _subViews[i] as NativeView;
-                if (nv != null && nv.View == view)
+                if (_subViews[i] is NativeView nv && nv.View == view)
                 {
                     RemoveSubViewAt(i);
                 }
@@ -188,14 +187,14 @@ namespace XibFree
         {
             if (_host != null)
             {
-                onDetach();
+                OnDetach();
             }
 
             _host = host;
 
             if (_host != null)
             {
-                onAttach(_host);
+                OnAttach(_host);
             }
         }
 
@@ -214,20 +213,20 @@ namespace XibFree
         /// We've been attached to a hosting view, notify all subviews
         /// </summary>
         /// <param name="host">The Host.</param>
-        internal override void onAttach(IHost host)
+        internal override void OnAttach(IHost host)
         {
             // Add the layer
             if (_layer != null)
                 host.GetUIView().Layer.AddSublayer(_layer);
             // Forward on to all children
             foreach (var c in _subViews)
-                c.onAttach(host);
+                c.OnAttach(host);
         }
 
         /// <summary>
         /// We've been detached from a hosting view, notify all subviews
         /// </summary>
-        internal override void onDetach()
+        internal override void OnDetach()
         {
             // Remove from layer
             _layer?.RemoveFromSuperLayer();
@@ -235,10 +234,10 @@ namespace XibFree
 
             // Forward on to all children
             foreach (var c in _subViews)
-                c.onDetach();
+                c.OnDetach();
         }
 
-        protected override void onLayout(CGRect newPosition, bool parentHidden)
+        protected override void OnLayout(CGRect newPosition, bool parentHidden)
         {
             // Reposition the layer
             if (_layer != null)

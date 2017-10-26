@@ -136,7 +136,7 @@ namespace XibFree
         }
 
         // Overridden to provide layout measurement
-        protected override void onMeasure(nfloat parentWidth, nfloat parentHeight)
+        protected override void OnMeasure(nfloat parentWidth, nfloat parentHeight)
         {
             MeasureHorizontal(parentWidth, parentHeight);
         }
@@ -177,7 +177,7 @@ namespace XibFree
                 if (rowDefinition.Height > 0)
                     height = rowDefinition.Height;
                 else
-                    height = adjustLayoutHeight(layoutHeight, v);
+                    height = AdjustLayoutHeight(layoutHeight, v);
 
                 if (v.LayoutParameters.WidthUnits != Units.ParentRatio)
                 {
@@ -295,9 +295,9 @@ namespace XibFree
 
 
         // Overridden to layout the subviews
-        protected override void onLayout(CGRect newPosition, bool parentHidden)
+        protected override void OnLayout(CGRect newPosition, bool parentHidden)
         {
-            base.onLayout(newPosition, parentHidden);
+            base.OnLayout(newPosition, parentHidden);
 
             if (!parentHidden && Visible)
             {
@@ -368,7 +368,7 @@ namespace XibFree
 
 
         // Helper to adjust the parent width passed down to subviews during measurement
-        private nfloat adjustLayoutWidth(nfloat width, View c)
+        private nfloat AdjustLayoutWidth(nfloat width, View c)
         {
             if (width == nfloat.MaxValue)
                 return width;
@@ -377,7 +377,7 @@ namespace XibFree
         }
 
         // Helper to adjust the parent height passed down to subviews during measurement
-        private nfloat adjustLayoutHeight(nfloat height, View c)
+        private nfloat AdjustLayoutHeight(nfloat height, View c)
         {
             if (height == nfloat.MaxValue)
                 return height;

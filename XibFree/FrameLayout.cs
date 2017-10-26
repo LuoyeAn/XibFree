@@ -27,7 +27,7 @@ namespace XibFree
 		{
 		}
 
-		protected override void onMeasure(nfloat parentWidth, nfloat parentHeight)
+		protected override void OnMeasure(nfloat parentWidth, nfloat parentHeight)
 		{
 			var unresolved = new List<View>();
 
@@ -127,7 +127,7 @@ namespace XibFree
 			SetMeasuredSize(LayoutParameters.ResolveSize(new CGSize(width, height), sizeMeasured));
 		}
 
-		protected override void onLayout(CGRect newPosition, bool parentHidden)
+		protected override void OnLayout(CGRect newPosition, bool parentHidden)
 		{
 			// Make room for padding
 			newPosition = newPosition.ApplyInsets(Padding);

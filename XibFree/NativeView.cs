@@ -59,12 +59,11 @@ namespace XibFree
 		{
 			get
 			{
-				var nestedHost = _view as UILayoutHost;
-				if (nestedHost!=null && nestedHost.Layout!=null)
-				{
-					return nestedHost.Layout.LayoutParameters;
-				}
-				return base.LayoutParameters;
+                if (_view is UILayoutHost nestedHost && nestedHost.Layout != null)
+                {
+                    return nestedHost.Layout.LayoutParameters;
+                }
+                return base.LayoutParameters;
 			}
 		}
 
@@ -86,7 +85,7 @@ namespace XibFree
 					ViewGroup.IHost host = GetHost();
 					if (host!=null)
 					{
-						onDetach();
+						OnDetach();
 					}
 
 					// Store the new view
@@ -98,7 +97,7 @@ namespace XibFree
 					// Attach the new view to the host
 					if (host!=null)
 					{
-						onAttach(host);
+						OnAttach(host);
 					}
 				}
 			}
@@ -119,7 +118,7 @@ namespace XibFree
 		/// </summary>
 		/// <param name="newPosition">New position.</param>
         /// <param name="parentHidden"></param>
-		protected override void onLayout(CGRect newPosition, bool parentHidden)
+		protected override void OnLayout(CGRect newPosition, bool parentHidden)
 		{
 			// Simple, just reposition the view!
 			if (_view!=null)
@@ -148,7 +147,7 @@ namespace XibFree
 		/// </summary>
 		/// <param name="parentWidth">Parent width.</param>
 		/// <param name="parentHeight">Parent height.</param>
-		protected override void onMeasure(nfloat parentWidth, nfloat parentHeight)
+		protected override void OnMeasure(nfloat parentWidth, nfloat parentHeight)
 		{
 			// Resolve width for absolute and parent ratio
 			nfloat width = LayoutParameters.TryResolveWidth(this, parentWidth,parentHeight);
@@ -177,7 +176,7 @@ namespace XibFree
 		/// Overridden to add this native view to the parent native view
 		/// </summary>
 		/// <param name="host">Host.</param>
-		internal override void onAttach(ViewGroup.IHost host)
+		internal override void OnAttach(ViewGroup.IHost host)
 		{
 			// If we have a view, attach to the hosting view by adding as a subview
 			if (_view!=null)
@@ -189,7 +188,7 @@ namespace XibFree
 		/// <summary>
 		/// Overridden to remove this native view from the parent native view
 		/// </summary>
-		internal override void onDetach()
+		internal override void OnDetach()
 		{
             // If we have a view, remove from the hosting view by removing it from the superview
             _view?.RemoveFromSuperview();

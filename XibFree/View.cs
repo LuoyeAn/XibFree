@@ -62,7 +62,7 @@ namespace XibFree
 					// Detach old host
 					ViewGroup.IHost host = GetHost();
 					if (host!=null)
-						onDetach();
+						OnDetach();
 
 					// Store new parent
 					_parent = value;
@@ -70,7 +70,7 @@ namespace XibFree
 					// Attach to new host
 					host = GetHost();
 					if (host!=null)
-						onAttach(host);
+						OnAttach(host);
 				}
 			}
 		}
@@ -95,12 +95,12 @@ namespace XibFree
 		}
 
 		// Internal notification that this view has been attached to a hosting view
-		internal virtual void onAttach(ViewGroup.IHost host)
+		internal virtual void OnAttach(ViewGroup.IHost host)
 		{
 		}
 
 		// Internal notification that this view has been detached from a hosting view
-		internal virtual void onDetach()
+		internal virtual void OnDetach()
 		{
 		}
 
@@ -112,7 +112,7 @@ namespace XibFree
         /// <param name="parentHidden"></param>
 		public void Layout(CGRect newPosition, bool parentHidden)
 		{
-			onLayout(newPosition, parentHidden);
+			OnLayout(newPosition, parentHidden);
 		}
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace XibFree
         /// </summary>
         /// <param name="newPosition">New position.</param>
         /// <param name="parentHidden"></param>
-        protected abstract void onLayout(CGRect newPosition, bool parentHidden);
+        protected abstract void OnLayout(CGRect newPosition, bool parentHidden);
 
 		/// <summary>
 		/// Measures the subviews of this view
@@ -130,7 +130,7 @@ namespace XibFree
 		public void Measure(nfloat parentWidth, nfloat parentHeight)
 		{
 			_measuredSizeValid = false;
-			onMeasure(parentWidth, parentHeight);
+			OnMeasure(parentWidth, parentHeight);
 			if (!_measuredSizeValid)
 			{
 				throw new InvalidOperationException("onMeasure didn't set measurement before returning");
@@ -142,7 +142,7 @@ namespace XibFree
 		/// </summary>
 		/// <param name="parentWidth">Parent width.</param>
 		/// <param name="parentHeight">Parent height.</param>
-		protected abstract void onMeasure(nfloat parentWidth, nfloat parentHeight);
+		protected abstract void OnMeasure(nfloat parentWidth, nfloat parentHeight);
 
 		/// Mark the measurement of this view as invalid
 		public void InvalidateMeasure()
