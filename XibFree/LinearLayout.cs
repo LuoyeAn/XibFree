@@ -341,7 +341,7 @@ namespace XibFree
         /// Overridden to layout the subviews
         protected override void OnLayout(CGRect newPosition, bool parentHidden)
         {
-            if (false)
+            if (Animate)
             {
                 base.OnLayout(newPosition, parentHidden);
                 UIView.BeginAnimations(null);
@@ -389,7 +389,8 @@ namespace XibFree
                     break;
 
                 case Gravity.CenterVertical:
-                    y = (newPosition.Top + newPosition.Bottom) / 2 - GetTotalMeasuredHeight() / 2 + Padding.Top;
+                    //y = (newPosition.Top + newPosition.Bottom) / 2 - GetTotalMeasuredHeight() / 2 + Padding.Top;
+                    y = Padding.Top + (newPosition.Top + newPosition.Bottom - Padding.Top - Padding.Bottom) / 2 - GetTotalMeasuredHeight() / 2;
                     break;
 
             }
