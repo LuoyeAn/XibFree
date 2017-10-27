@@ -42,35 +42,21 @@ namespace XibFree
         /// each subview that has a size of FillParent.</description>
         public nfloat TotalWeight
         {
-            get
-            {
-                return _totalWeight;
-            }
-            set
-            {
-                _totalWeight = value;
-            }
+            get => _totalWeight;
+            set => _totalWeight = value;
         }
 
         /// <summary>
         /// Specifies the gravity for views contained within this layout
         /// </summary>
         /// <value>One of the Gravity constants</value>
-        public Gravity Gravity
-        {
-            get;
-            set;
-        }
+        public Gravity Gravity { get; set; }
 
         /// <summary>
         /// Gets or sets the spacing between stacked subviews
         /// </summary>
         /// <value>The amount of spacing.</value>
-        public nfloat Spacing
-        {
-            get;
-            set;
-        }
+        public nfloat Spacing { get; set; }
 
         // Overridden to provide layout measurement
         protected override void OnMeasure(nfloat parentWidth, nfloat parentHeight)
