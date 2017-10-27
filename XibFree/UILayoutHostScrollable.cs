@@ -21,86 +21,86 @@ using Foundation;
 
 namespace XibFree
 {
-	/// <summary>
-	/// UILayoutHostScrollable is the native UIView that hosts that XibFree layout
-	/// </summary>
-	public class UILayoutHostScrollable : UIScrollView
-	{
+    /// <summary>
+    /// UILayoutHostScrollable is the native UIView that hosts that XibFree layout
+    /// </summary>
+    public class UILayoutHostScrollable : UIScrollView
+    {
         private CGRect _frame;
-		/// <summary>
-		/// Initializes a new instance of the <see cref="XibFree.UILayoutHostScrollable"/> class.
-		/// </summary>
-		/// <param name="layout">Root of the view hierarchy to be hosted by this layout host</param>
-		public UILayoutHostScrollable(ViewGroup layout, CGRect frame) : base(frame)
-		{
+        /// <summary>
+        /// Initializes a new instance of the <see cref="XibFree.UILayoutHostScrollable"/> class.
+        /// </summary>
+        /// <param name="layout">Root of the view hierarchy to be hosted by this layout host</param>
+        public UILayoutHostScrollable(ViewGroup layout, CGRect frame) : base(frame)
+        {
             _layoutHost = new UILayoutHost(layout)
             {
                 AutoresizingMask = UIViewAutoresizing.None
             };
             this.AutoresizingMask = UIViewAutoresizing.FlexibleDimensions;
-			this.AddSubview(_layoutHost);
+            this.AddSubview(_layoutHost);
             _frame = frame;
         }
 
-		public UILayoutHostScrollable() : this(null, CGRect.Empty)
-		{
-		}
+        public UILayoutHostScrollable() : this(null, CGRect.Empty)
+        {
+        }
 
-		public UILayoutHostScrollable(ViewGroup layout) : this(layout, CGRect.Empty)
-		{
-		}
+        public UILayoutHostScrollable(ViewGroup layout) : this(layout, CGRect.Empty)
+        {
+        }
 
-		UILayoutHost _layoutHost;
+        UILayoutHost _layoutHost;
 
-		/// <summary>
-		/// The ViewGroup declaring the layout to hosted
-		/// </summary>
-		/// <value>The ViewGroup.</value>
-		public ViewGroup Layout
-		{
-			get
-			{
-				return _layoutHost.Layout;
-			}
+        /// <summary>
+        /// The ViewGroup declaring the layout to hosted
+        /// </summary>
+        /// <value>The ViewGroup.</value>
+        public ViewGroup Layout
+        {
+            get
+            {
+                return _layoutHost.Layout;
+            }
 
-			set
-			{
-				_layoutHost.Layout = value;
-				SetNeedsLayout();
-			}
-		}
+            set
+            {
+                _layoutHost.Layout = value;
+                SetNeedsLayout();
+            }
+        }
 
-		public override CGSize SizeThatFits(CGSize size)
-		{
-            if (_frame != null)
+        public override CGSize SizeThatFits(CGSize size)
+        {
+            if (_frame != null && !_frame.IsEmpty)
                 return _frame.Size;
-			var newSize= _layoutHost.SizeThatFits(size);
+            var newSize = _layoutHost.SizeThatFits(size);
             return newSize;
-		}
+        }
 
 
-		/// <Docs>Lays out subviews.</Docs>
-		/// <summary>
-		/// Called by iOS to update the layout of this view
-		/// </summary>
-		public override void LayoutSubviews()
-		{
-			if (Layout!=null)
-			{
+        /// <Docs>Lays out subviews.</Docs>
+        /// <summary>
+        /// Called by iOS to update the layout of this view
+        /// </summary>
+        public override void LayoutSubviews()
+        {
+            if (Layout != null)
+            {
                 // Remeasure the layout
                 Layout.Measure(Bounds.Width, Bounds.Height);
                 //_layoutHost.SetNeedsLayout();
                 //_layoutHost.LayoutIfNeeded();
 
                 var size = Layout.GetMeasuredSize();
-                
-				// Reposition the layout host
-				_layoutHost.Frame = new CGRect(CGPoint.Empty, size);
 
-				// Update the scroll view content
-				ContentSize = size;
-			}
-		}
+                // Reposition the layout host
+                _layoutHost.Frame = new CGRect(CGPoint.Empty, size);
+
+                // Update the scroll view content
+                ContentSize = size;
+            }
+        }
 
         public override void TouchesBegan(NSSet touches, UIEvent evt)
         {
