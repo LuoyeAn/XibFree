@@ -197,7 +197,7 @@ namespace XibFree
                             break;
 
                         case Gravity.CenterVertical:
-                            y = y + (row.Height - v.GetMeasuredSize().Height) / 2;
+                            y = y + (row.Height - (v.GetMeasuredSize().Height)) / 2;
                             break;
                     }
 
