@@ -153,7 +153,6 @@ namespace XibFree
             }
         }
 
-
         // Do subview layout when in horizontal orientation
         void LayoutHorizontal(CGRect newPosition)
         {
