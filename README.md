@@ -1,6 +1,7 @@
 # XibFree 
 [![Build status](https://build.mobile.azure.com/v0.1/apps/bd349e55-965f-4013-9ec0-0c05ac57bb72/branches/Dev/badge)](https://mobile.azure.com)
 [![NuGet](https://img.shields.io/nuget/v/XibFree.svg)](https://www.nuget.org/packages/XibFree)
+[![CodeFactor](https://www.codefactor.io/repository/github/tingtingan/xibfree/badge)](https://www.codefactor.io/repository/github/tingtingan/xibfree)
 
 
 XibFree fix some bugs
