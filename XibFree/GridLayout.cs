@@ -359,7 +359,6 @@ namespace XibFree
             }
         }
 
-
         // Helper to adjust the parent width passed down to subviews during measurement
         private nfloat AdjustLayoutWidth(nfloat width, View c)
         {
