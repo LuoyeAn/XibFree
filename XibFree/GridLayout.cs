@@ -73,7 +73,6 @@ namespace XibFree
 
     public class GridLayout : ViewGroup
     {
-
         public IList<RowDefinition> RowDefinitions { get; set; }
 
         public IList<ColumnDefinition> ColumnDefinitions { get; set; }
@@ -142,6 +141,7 @@ namespace XibFree
         }
 
         private View[,] _arrangedViews;
+
         // Do measurement when in horizontal orientation
         private void MeasureHorizontal(nfloat parentWidth, nfloat parentHeight)
         {
@@ -190,7 +190,6 @@ namespace XibFree
                     columnWidthFillParentSubviews.Add(v);
                 }
             }
-
             {
                 nfloat totalWeight = 0;
                 nfloat totalWidth = 0;
@@ -223,7 +222,6 @@ namespace XibFree
                     }
                     totalWidth += column.CalculatedWidth;
                 }
-
                 var room = layoutWidth - totalWidth;
                 foreach (var column in ColumnDefinitions.Where(x => x.Width == AutoSize.FillParent))
                 {
@@ -232,7 +230,6 @@ namespace XibFree
                     column.CalculatedWidth = room * column.Weight / totalWeight;
                 }
             }
-
             {
                 var totalWeight = 0;
                 var totalHeight = 0;
@@ -246,7 +243,6 @@ namespace XibFree
                         row.CalculatedHeight = row.Height;
                         continue;
                     }
-
 
                     if (row.Height == AutoSize.WrapContent)
                     {
@@ -262,7 +258,6 @@ namespace XibFree
                         }
                     }
                 }
-
 
                 var room = layoutHeight - totalHeight;
                 foreach (var row in RowDefinitions.Where(x => x.Height == AutoSize.FillParent))
@@ -291,8 +286,6 @@ namespace XibFree
             // And finally, set our measure dimensions
             SetMeasuredSize(LayoutParameters.ResolveSize(new CGSize(layoutWidth, layoutHeight), sizeMeasured));
         }
-
-
 
         // Overridden to layout the subviews
         protected override void OnLayout(CGRect newPosition, bool parentHidden)
