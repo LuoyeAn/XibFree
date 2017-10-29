@@ -83,7 +83,6 @@ namespace XibFree
         private List<View> _goneViews;
         private List<WrapRow> _rows;
 
-
         // Do measurement when in horizontal orientation
         private void MeasureHorizontal(nfloat parentWidth, nfloat parentHeight)
         {
@@ -153,7 +152,6 @@ namespace XibFree
             }
         }
 
-
         // Do subview layout when in horizontal orientation
         void LayoutHorizontal(CGRect newPosition)
         {
@@ -179,7 +177,6 @@ namespace XibFree
                     case Gravity.CenterHorizontal:
                         x = (newPosition.Left + newPosition.Right) / 2 - row.Width / 2 + Padding.Left;
                         break;
-
                 }
 
                 foreach (var v in row.Views)

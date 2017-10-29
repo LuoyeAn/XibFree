@@ -8,7 +8,6 @@ using XibFree;
 
 namespace Demo.Views
 {
-
     [Register("NestingScrollView")]
     public class NestingScrollView : UIViewController
     {
@@ -26,7 +25,6 @@ namespace Demo.Views
         private LinearLayout Layout { get; set; }
         public override void ViewDidLoad()
         {
-
             base.ViewDidLoad();
 
             // Perform any additional setup after loading the view
