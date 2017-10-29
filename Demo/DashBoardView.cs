@@ -8,7 +8,6 @@ using XibFree;
 
 namespace Demo
 {
-
     [Register("DashBoardView")]
     public class DashBoardView : UIViewController
     {

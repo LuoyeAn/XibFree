@@ -205,7 +205,6 @@ namespace XibFree
                     }
                     else if (column.Width == AutoSize.WrapContent)
                     {
-
                         for (int rowId = 0; rowId < RowDefinitions.Count; rowId++)
                         {
                             var v = _arrangedViews[rowId, columnId];
