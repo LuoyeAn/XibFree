@@ -107,7 +107,6 @@ namespace XibFree
                 visibleViewCount++;
             }
 
-
             // Also need to include our own padding
             totalFixedSize += Padding.TotalHeight();
 
@@ -306,8 +305,6 @@ namespace XibFree
                 layoutHeight += Padding.TotalHeight();
             }
 
-
-
             if (layoutWidth == nfloat.MaxValue)
             {
                 layoutWidth = totalFixedSize + totalVariableSize;
@@ -378,7 +375,6 @@ namespace XibFree
                     //y = (newPosition.Top + newPosition.Bottom) / 2 - GetTotalMeasuredHeight() / 2 + Padding.Top;
                     y = Padding.Top + (newPosition.Top + newPosition.Bottom - Padding.Top - Padding.Bottom) / 2 - GetTotalMeasuredHeight() / 2;
                     break;
-
             }
 
             bool first = true;
@@ -396,7 +392,6 @@ namespace XibFree
                     y += Spacing;
                 else
                     first = false;
-
 
                 y += v.LayoutParameters.Margins.Top;
 
@@ -424,7 +419,6 @@ namespace XibFree
                         break;
                 }
 
-
                 v.Layout(new CGRect(x, y, size.Width, size.Height), !Visible);
 
                 y += size.Height + v.LayoutParameters.Margins.Bottom;
@@ -448,7 +442,6 @@ namespace XibFree
                 case Gravity.CenterHorizontal:
                     x = (newPosition.Left + newPosition.Right) / 2 - GetTotalMeasuredWidth() / 2 + Padding.Left;
                     break;
-
             }
 
             bool first = true;
@@ -492,7 +485,6 @@ namespace XibFree
                             - (size.Height + v.LayoutParameters.Margins.TotalHeight()) / 2;
                         break;
                 }
-
 
                 v.Layout(new CGRect(x, y, size.Width, size.Height), !Visible);
 
