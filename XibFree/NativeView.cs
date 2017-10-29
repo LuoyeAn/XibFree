@@ -248,10 +248,7 @@ namespace XibFree
             return null;
         }
 
-
-
         // The hosted native view
         private UIView _view;
     }
 }
-

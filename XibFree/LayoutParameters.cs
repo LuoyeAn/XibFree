@@ -48,7 +48,6 @@ namespace XibFree
         HostRatio,
     }
 
-
     /// <summary>
     /// LayoutParameters declare how a view should be laid out by it's parent view group.
     /// </summary>
@@ -206,7 +205,6 @@ namespace XibFree
                 _margins = value;
             }
         }
-
 
         /// <summary>
         /// Gets or sets the left margin.
@@ -449,4 +447,3 @@ namespace XibFree
         UIEdgeInsets _margins;
     }
 }
-

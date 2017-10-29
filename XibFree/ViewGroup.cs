@@ -178,7 +178,6 @@ namespace XibFree
             UIView GetUIView();
         }
 
-
         /// <summary>
         /// Sets the native host for this view hierachy
         /// </summary>
@@ -318,12 +317,10 @@ namespace XibFree
             return null;
         }
 
-
         internal override CALayer GetDisplayLayer()
         {
             return _layer;
         }
-
 
         public CALayer Layer
         {
@@ -368,4 +365,3 @@ namespace XibFree
         IHost _host;
     }
 }
-

@@ -104,7 +104,6 @@ namespace XibFree
 		{
 		}
 
-
 		/// <summary>
 		/// Layout the subviews in this view using dimensions calculated during the last measure cycle
 		/// </summary>
@@ -243,7 +242,6 @@ namespace XibFree
             Parent?.RemoveSubView(this);
         }
 
-
 		internal CGSize _measuredSize;
 		internal bool _measuredSizeValid;
 		internal ViewGroup _parent;
@@ -256,4 +254,3 @@ namespace XibFree
         public double AnimateDuration { get; set; }
     }
 }
-

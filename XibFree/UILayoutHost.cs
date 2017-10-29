@@ -46,7 +46,6 @@ namespace XibFree
             Layout = layout;
         }
 
-
         /// <summary>
         /// The ViewGroup declaring the layout to hosted
         /// </summary>
@@ -86,7 +85,6 @@ namespace XibFree
             return _layout.GetMeasuredSize();
         }
 
-
         /// <Docs>Lays out subviews.</Docs>
         /// <summary>
         /// Called by iOS to update the layout of this view
@@ -115,8 +113,6 @@ namespace XibFree
 
         #endregion
 
-
         private ViewGroup _layout;
     }
 }
-

@@ -35,4 +35,3 @@ namespace XibFree
 		public const float WrapContent = -2;
 	}
 }
-

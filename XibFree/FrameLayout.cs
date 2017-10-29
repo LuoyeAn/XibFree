@@ -167,4 +167,3 @@ namespace XibFree
         public Action<FrameLayout> Init { set => value(this); }
     }
 }
-

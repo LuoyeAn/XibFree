@@ -78,7 +78,6 @@ namespace XibFree
             return newSize;
         }
 
-
         /// <Docs>Lays out subviews.</Docs>
         /// <summary>
         /// Called by iOS to update the layout of this view
@@ -110,4 +109,3 @@ namespace XibFree
         }
     }
 }
-

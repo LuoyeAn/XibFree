@@ -47,4 +47,3 @@ namespace XibFree
 		VerticalMask = Top | Bottom | CenterVertical,
 	}
 }
-

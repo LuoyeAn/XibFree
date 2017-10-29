@@ -24,4 +24,3 @@ namespace XibFree
 		Gone,
 	}
 }
-

@@ -544,4 +544,3 @@ namespace XibFree
         private nfloat _totalWeight;
     }
 }
-
