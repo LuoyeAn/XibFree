@@ -3,6 +3,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/qisge0xnu4hvraja?svg=true)](https://ci.appveyor.com/project/TingtingAn/xibfree)
 [![NuGet](https://img.shields.io/nuget/v/XibFree.svg)](https://www.nuget.org/packages/XibFree)
 [![CodeFactor](https://www.codefactor.io/repository/github/tingtingan/xibfree/badge)](https://www.codefactor.io/repository/github/tingtingan/xibfree)
+[![BCH compliance](https://bettercodehub.com/edge/badge/TingtingAn/XibFree?branch=Dev)](https://bettercodehub.com/)
 
 
 XibFree fix some bugs
