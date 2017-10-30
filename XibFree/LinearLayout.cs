@@ -324,7 +324,7 @@ namespace XibFree
         /// Overridden to layout the subviews
         protected override void OnLayout(CGRect newPosition, bool parentHidden)
         {
-            if (Animate)
+            if (false)
             {
                 base.OnLayout(newPosition, parentHidden);
                 UIView.BeginAnimations(null);

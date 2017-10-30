@@ -104,6 +104,7 @@ namespace XibFree
         public override void TouchesBegan(NSSet touches, UIEvent evt)
         {
             base.TouchesBegan(touches, evt);
+
             var view = this as UIView;
             view?.EndEditing(true);
         }
