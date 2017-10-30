@@ -93,8 +93,11 @@ namespace XibFree
         {
             // Remeasure
             _layout?.Measure(Bounds.Width, Bounds.Height);
-            // Apply layout
-            _layout?.Layout(Bounds, false);
+            if (_layout is FrameLayout)
+                _layout.Layout(new CGRect(CGPoint.Empty, _layout.GetMeasuredSize()), false);
+            else
+                // Apply layout
+                _layout?.Layout(Bounds, false);
 
             DidLayoutAction?.Invoke();
         }
