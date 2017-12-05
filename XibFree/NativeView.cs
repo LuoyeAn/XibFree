@@ -165,7 +165,7 @@ namespace XibFree
                     size = _view.SizeThatFits(new CGSize(LayoutParameters.MaxWidth, height));
                 }
 
-                sizeMeasured = Measurer != null ? Measurer(_view, sizeToFit) : size;
+                sizeMeasured = Measurer != null ? Measurer(_view, size) : size;
             }
 
             // Set the measured size
