@@ -272,7 +272,14 @@ namespace XibFree
             {
                 foreach (var v in SubViews)
                 {
-                    v.Layout(CGRect.Empty, true);
+                    if (v is NativeView nativeView)
+                    {
+                        v.Layout(nativeView.View.Frame, true);
+                    }
+                    else
+                    {
+                        v.Layout(CGRect.Empty, true);
+                    }
                 }
             }
         }

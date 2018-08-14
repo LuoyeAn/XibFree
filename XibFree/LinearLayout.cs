@@ -384,7 +384,14 @@ namespace XibFree
                 // Hide hidden views
                 if (v.Gone)
                 {
-                    v.Layout(CGRect.Empty, true);
+                    if(v is NativeView nativeView)
+                    {
+                        v.Layout(nativeView.View.Frame, true);
+                    }
+                    else
+                    {
+                        v.Layout(CGRect.Empty, true);
+                    }
                     continue;
                 }
 
@@ -451,7 +458,14 @@ namespace XibFree
                 // Hide hidden views
                 if (v.Gone)
                 {
-                    v.Layout(CGRect.Empty, true);
+                    if (v is NativeView nativeView)
+                    {
+                        v.Layout(nativeView.View.Frame, true);
+                    }
+                    else
+                    {
+                        v.Layout(CGRect.Empty, true);
+                    }
                     continue;
                 }
 

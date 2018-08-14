@@ -14,13 +14,13 @@
     <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
     <PackageId>XibFree</PackageId>
-    <PackageVersion>1.2.3.0</PackageVersion>
+    <PackageVersion>1.2.4.0-beta</PackageVersion>
     <Authors>TingtingAn</Authors>
-    <Description>XibFree for Xamarin.IOS</Description>
+    <Description>XibFree for Xamarin.iOS</Description>
     <Owners>tingtingan</Owners>
     <PackageProjectUrl>https://github.com/TingtingAn/XibFree</PackageProjectUrl>
-    <Summary>XibFree for Xamarin.IOS</Summary>
-    <PackageTags>Xamarin.IOS XibFree</PackageTags>
+    <Summary>XibFree for Xamarin.iOS</Summary>
+    <PackageTags>Xamarin.iOS XibFree</PackageTags>
     <Title>XibFree</Title>
     <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>

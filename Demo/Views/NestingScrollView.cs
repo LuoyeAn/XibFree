@@ -150,6 +150,7 @@ namespace Demo.Views
                                                         button.SetTitleColor(UIColor.Blue,UIControlState.Normal);
                                                         button.ContentEdgeInsets=new UIEdgeInsets(10,10,10,10);
                                                         button.AccessibilityIdentifier="sendButton";
+                                                        button.TouchUpInside+=Button_TouchUpInside;
                                                     }
                                                 },
                                             }
@@ -206,6 +207,11 @@ namespace Demo.Views
 
         private void Button_TouchUpInside(object sender, EventArgs e)
         {
+            //var button = sender as UIButton;
+            //button.GetLayoutHost().Superview.SetNeedsLayout();
+            //UIView.Animate(1, button.GetLayoutHost().Superview.LayoutIfNeeded);
+            View.SetNeedsLayout();
+            UIView.Animate(1, View.LayoutIfNeeded);
         }
     }
 }
