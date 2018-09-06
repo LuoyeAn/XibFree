@@ -14,7 +14,7 @@
     <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
     <PackageId>XibFree</PackageId>
-    <PackageVersion>1.2.4.0-beta</PackageVersion>
+    <PackageVersion>1.2.4.1-beta</PackageVersion>
     <Authors>TingtingAn</Authors>
     <Description>XibFree for Xamarin.iOS</Description>
     <Owners>tingtingan</Owners>

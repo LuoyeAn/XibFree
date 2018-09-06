@@ -249,6 +249,7 @@ namespace XibFree
                     // weird animation as it's repositioned.
                     CATransaction.Begin();
                     CATransaction.DisableActions = !Animate;
+                    CATransaction.AnimationDuration = AnimateDuration;
                     _layer.Hidden = newHidden;
                     _layer.Frame = newPosition;
                     CATransaction.Commit();
@@ -257,10 +258,9 @@ namespace XibFree
                 {
                     if (!_layer.Hidden)
                     {
-                        //_layer.Frame = newPosition;
                         CATransaction.Begin();
                         CATransaction.DisableActions = !Animate;
-                        //_layer.Hidden = newHidden;
+                        CATransaction.AnimationDuration = AnimateDuration;
                         _layer.Frame = newPosition;
                         CATransaction.Commit();
                     }

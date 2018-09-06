@@ -18,6 +18,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using CoreGraphics;
+using CoreAnimation;
 
 namespace XibFree
 {
@@ -129,6 +130,32 @@ namespace XibFree
 
         protected override void OnLayout(CGRect newPosition, bool parentHidden)
         {
+            // Reposition the layer
+            if (GetDisplayLayer() != null)
+            {
+                var _layer = GetDisplayLayer();
+                bool newHidden = parentHidden || !Visible;
+                if (newHidden != _layer.Hidden)
+                {
+                    CATransaction.Begin();
+                    CATransaction.DisableActions = !Animate;
+                    CATransaction.AnimationDuration = AnimateDuration;
+                    _layer.Hidden = newHidden;
+                    _layer.Frame = newPosition;
+                    CATransaction.Commit();
+                }
+                else
+                {
+                    if (!_layer.Hidden)
+                    {
+                        CATransaction.Begin();
+                        CATransaction.DisableActions = !Animate;
+                        CATransaction.AnimationDuration = AnimateDuration;
+                        _layer.Frame = newPosition;
+                        CATransaction.Commit();
+                    }
+                }
+            }
             // Make room for padding
             newPosition = newPosition.ApplyInsets(Padding);
 
