@@ -26,14 +26,10 @@ added the Animate feature for LinearLayout subviews.
             _contentLayout.Animate = true;
             _contentLayout.AnimateDuration = 0.5f;
 
-# Wiki
-
-For now, the Wiki is null.  Welcome everyone to add/update it.
-
 # Contributing
 
 We're looking forward to your contributions via [pull requests on GitHub](https://github.com/TingtingAn/XibFree).
 
 # Contact
 
-If you have further questions or are running into trouble, feel free to open an issue here, or contact us at [tingtingan@highviewsoftware.com](mailto:tingtingan@highviewsoftware.com).
+If you have further questions or are running into trouble, feel free to open an issue here
